@@ -36,3 +36,31 @@ function playRound(playerSelection, computerSelection){
         return "Invalid Input!";
     }
 }
+
+function game(){
+    let playerWins = 0;
+    let computerWins = 0;
+    for(let i = 0; i < 5; i++){
+        let playerSelection = prompt("Enter your move: ");
+        let computerSelection = computerPlay();
+
+        let result = playRound(playerSelection,computerSelection);
+        console.log(result);
+
+        if(result.charAt(4) === 'W'){
+            playerWins++;
+        } else if(result.charAt(4) === 'L'){
+            computerWins++;
+        }
+    }
+
+    if(playerWins > computerWins){
+        console.log("You Win!");
+    } else if(playerWins < computerWins){
+        console.log("You Lose!");
+    } else{
+        console.log("You Drew!");
+    }
+
+    console.log("Score:\n" + "Player = " + playerWins + "\n" + "Computer = " + computerWins + "\n");
+}
