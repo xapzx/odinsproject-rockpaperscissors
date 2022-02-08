@@ -47,7 +47,9 @@ function game(){
         let result = playRound(playerSelection,computerSelection);
         console.log(result);
 
-        if(result.charAt(4) === 'W'){
+        if(result === "Invalid Input!"){
+            continue;
+        } else if(result.charAt(4) === 'W'){
             playerWins++;
         } else if(result.charAt(4) === 'L'){
             computerWins++;
