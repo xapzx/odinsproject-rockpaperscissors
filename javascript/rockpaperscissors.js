@@ -52,12 +52,17 @@ function playRound(playerSelection, computerSelection){
     } else {
         return "Invalid Input!";
     }
-    const currentScore = document.querySelector('.currentScore');
-    currentScore.textContent = "Player Score: " + playerWins + "   |   " + "Computer Score: " + computerWins;
+    
+    displayScore();
 
     if(playerWins === 5 || computerWins === 5){
         announceWinner();
     }
+}
+
+function displayScore(){
+    const currentScore = document.querySelector('.currentScore');
+    currentScore.textContent = "Player Score: " + playerWins + "   |   " + "Computer Score: " + computerWins;
 }
 
 function announceWinner(){
@@ -83,7 +88,7 @@ function hideMainGame(){
 }
 
 function showMainGame(){
-    document.querySelector(".main").style.display = "block";
+    document.querySelector(".main").style.display = "flex";
     document.querySelector(".completedGame").style.display = "none";
 }
 
@@ -138,6 +143,8 @@ scissorsSelection.addEventListener('click', function(){
 
 const playAgain = document.querySelector(".playAgain");
 playAgain.addEventListener('click', function(){
+    document.querySelector('.result').textContent = '';
     clearScore();
+    displayScore();
     showMainGame();
 })
